@@ -1,0 +1,307 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Physically Plausible Neural Scene Reconstruction">
+  <meta name="keywords" content="PhyRecon">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhyRecon</title>
+  <link rel="icon" href="images/physics.svg" type="image/svg+xml">
+
+  <script id="MathJax-script" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <script src="./static/js/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  gap: 10px;
+  padding: 0;
+}
+
+.grid-container > div {
+  text-align: center;
+  padding: 0;
+  font-size: 30px;
+}
+
+.obj1 {
+  grid-column: 1 / 3;
+}
+.obj2 {
+  grid-column: 3 / 5;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+.obj3 {
+  grid-column: 5 / 7;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.content h4 {
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+hr {
+  background-color: lightgray;
+}
+
+</style>
+
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <!-- <div class="columns is-centered">
+        <div class="column is-7 has-text-centered">
+          <img src="media/nice-slam/nice-slam-logo2.png" alt="NICE-SLAM"/>
+        </div>
+      </div> -->
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">PhyRecon: <br> Physically Plausible Neural Scene Reconstruction</h1>
+          <!-- <div class="column is-full_width">
+            <h2 class="title is-4"></h2>
+          </div> -->
+          <!-- <br> -->
+          <div class="is-size-5">
+            <span class="author-block">
+                <a href="https://dali-jack.github.io/Junfeng-Ni/" style="color:#000000;font-weight:normal;font-size:16px;">Junfeng Ni*<sup>2+</sup></a>,
+            <span class="author-block">
+                <a href="https://yixchen.github.io/" style="color:#000000;font-weight:normal;font-size:16px;">Yixin Chen*<sup>1</sup></a>,
+            <span class="author-block">
+                <a href="" style="color:#000000;font-weight:normal;font-size:16px;">Bohan Jing<sup>1</sup></a>,
+            <span class="author-block">
+                <a href="https://pku.ai/author/nan-jiang/" style="color:#000000;font-weight:normal;font-size:16px;">Nan Jiang<sup>3+</sup></a>,
+            <span class="author-block">
+                  <a href="https://binwangbfa.github.io/" style="color:#000000;font-weight:normal;font-size:16px;">Bin Wang<sup>1</sup></a>,
+            <span class="author-block">
+                  <a href="https://daibopku.github.io/daibo/" style="color:#000000;font-weight:normal;font-size:16px;">Bo Dai<sup>1</sup></a>,
+            <span class="author-block">
+                  <a href="https://yzhu.io/" style="color:#000000;font-weight:normal;font-size:16px;">Yixin Zhu<sup>3</sup></a>,
+            <span class="author-block">
+                  <a href="https://zhusongchun.net/" style="color:#000000;font-weight:normal;font-size:16px;">Song-Chun Zhu<sup>123</sup></a>,
+	          <span class="author-block">
+                <a href="https://siyuanhuang.com/" style="color:#000000;font-weight:normal;font-size:16px;">Siyuan Huang<sup>1</sup></a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block" style="color:#808080;font-weight:normal;font-size:18px;">
+              * indicates equal contribution  &nbsp&nbsp <sup>+</sup> Work done during an internship at BIGAI
+            </span>
+            <br>
+            <span class="author-block" style="color:#808080;font-weight:normal;font-size:18px;">
+              <sup>1</sup>National Key Laboratory of General Artificial Intelligence, BIGAI  &nbsp&nbsp
+              <sup>2</sup>Tsinghua University  &nbsp &nbsp
+              <sup>3</sup>Peking University
+            </span>
+            <br>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="" target="_blank"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+               <span class="link-block">
+                <a href="" target="_blank"
+		   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span >Code</span>
+                  </a>
+              </span> 
+            </div>
+
+          </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./images/teaser.png" alt="">
+      <!-- <video id="teaser" autoplay muted loop height="100%">
+        <source src="./images/teaser.mp4"
+                type="video/mp4">
+      </video> -->
+      <!-- <img class="rounded" src="./objectsdf/teaser.png" > -->
+      <br><br><br>
+      <h2 class="subtitle has-text-centered">
+      <strong>PhyRecon</strong> is the first approach to harness both <strong>differentiable rendering and differentiable physics simulation</strong> to learn implicit surface representations. 
+      It not only achieves significant enhancements in reconstruction quality but also demonstrates substantial stability improvements in physical simulators, signaling its broader potential for <strong>physics-demanding applications</strong>.
+    </h2>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Abstract</h2>
+        </div>
+        </div>
+        <br>
+        <div class="content has-text-justified">
+          <p>
+            While neural implicit representations have gained popularity in multi-view 3D reconstruction, previous work struggles to yield physically plausible results, thereby limiting their applications in physics-demanding domains like embodied AI and robotics. 
+            The lack of plausibility originates from both the absence of physics modeling in the existing pipeline and their inability to recover intricate geometrical structures. 
+            In this paper, we introduce <b>PhyRecon</b>, which stands as the first approach to harness both differentiable rendering and differentiable physics simulation to learn implicit surface representations. 
+            Our framework proposes a novel differentiable particle-based physical simulator seamlessly integrated with the neural implicit representation. 
+            At its core is an efficient transformation between SDF-based implicit representation and explicit surface points by our proposed algorithm, Surface Points Marching Cubes (SP-MC) , enabling differentiable learning with both rendering and physical losses. 
+            Moreover, we model both rendering and physical uncertainty to identify and compensate for the inconsistent and inaccurate monocular geometric priors. 
+            The physical uncertainty additionally enables a physics-guided pixel sampling to enhance the learning of slender structures. 
+            By amalgamating these techniques, our model facilitates efficient joint modeling with appearance, geometry, and physics. 
+            Extensive experiments demonstrate that <b>PhyRecon</b> significantly outperforms all state-of-the-art methods in terms of reconstruction quality. 
+            Our reconstruction results also yield superior physical stability, verified by Isaac Gym, with at least a 40% improvement across all datasets, opening broader avenues for future physics-based applications.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered has-text-centered">
+        <h2 class="title is-3">Method</h2>
+        </div>
+        </div>
+        <br>
+        <div class="content has-text-justified">
+          <p>
+            Our novel framework bridges neural scene reconstruction and physics simulation to achieve the joint modeling of physics, geometry, and appearance.
+            We realize a particle-based physical simulator and a highly efficient method for transitioning from SDF-based neural implicit representations to explicit representations that are conducive to physics simulation.
+            Furthermore, we propose a joint uncertainty modeling approach, encompassing both rendering and physical uncertainty, to mitigate the inconsistencies and improve the reconstruction of thin structures.
+          </p>
+          <img src="./images/method.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="Result">
+  <div class="container is-max-desktop">
+    <div  class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+    <h2 class="title is-3">Results</h2>
+    </div>
+    </div>
+    <br>
+
+    <h3 class="title is-4">Indoor Scene Reconstruction</h3>
+        <div class="content has-text-justified">
+            <img src="./images/scene_recon.png" alt="">
+            <p>
+               Examples from ScanNet++, ScanNet and Replica demonstrate our model produces higher quality reconstructions compared with the baselines. 
+               Our results contain finer details for slender structures (chair legs and the objects on the table) and plausible support relations, which are shown in the zoom-in boxes.
+            </p>
+        </div>
+
+      <h3 class="title is-4">Object Stability Comparison</h3>
+        <div class="content has-text-justified">
+          <video id="teaser" autoplay muted loop height="100%">
+            <source src="./images/stability.mp4" type="video/mp4">
+          </video>
+            <p>
+               We visualize the trajectory for the reconstructed object during dropping simulation in Isaac Gym. 
+               Our method enhances the physical plausibility of the reconstruction results, which can remain stable during dropping simulation in Isaac Gym.
+            </p>
+        </div>
+
+        <h3 class="title is-4">Reconstructed Scene in Physical Simulator</h3>
+        <div class="content has-text-justified">
+          <video id="teaser" autoplay muted loop height="100%">
+            <source src="./images/scene_physics.mp4" type="video/mp4">
+          </video>
+            <p>
+               Our results exhibit substantial stability improvements in physical simulators, signaling a broader potential for physics-demanding applications. 
+            </p>
+        </div>
+<br>
+
+<section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+
+      </code></pre>
+    </div>
+  </section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This webpage originated from <a href="https://nerfies.github.io/">Nerfies</a>.
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
