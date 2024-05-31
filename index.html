@@ -167,21 +167,22 @@ hr {
 
 <section class="hero teaser">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop height="100%">
-        <source src="./images/scene_physics.mp4" type="video/mp4">
-      </video>
-      <!-- <video id="teaser" autoplay muted loop height="100%">
-        <source src="./images/teaser.mp4"
-                type="video/mp4">
-      </video> -->
-      <!-- <img class="rounded" src="./objectsdf/teaser.png" > -->
-      <br><br><br>
-      <h2 class="subtitle has-text-centered">
+    <h2 class="subtitle has-text-centered">
+      TL;DR: <strong>PhyRecon</strong> harnesses both <strong>differentiable rendering and differentiable physics simulation</strong> to learn implicit surface representations from multi-view images.
+      It achieves significant enhancements in reconstruction quality and demonstrates substantial stability improvements in physical simulators, signaling broader potential for physics-demanding applications.
+    </h2>
+      <div class="columns is-centered">
+        <video id="teaser" autoplay muted loop height="100%">
+          <source src="./images/demo.mp4" type="video/mp4">
+        </video>
+      </div>
+      <img src="./images/teaser.png" alt="">
+      <br>
+      <!-- <h2 class="subtitle has-text-centered">
       <strong>PhyRecon</strong> harnesses both <strong>differentiable rendering and differentiable physics simulation</strong> to learn implicit surface representations. 
       It achieves significant enhancements in reconstruction quality and demonstrates substantial stability improvements in physical simulators.
-    </h2>
-    <img src="./images/teaser.png" alt="">
+    </h2> -->
+    <!-- <img src="./images/teaser.png" alt=""> -->
     </div>
   </div>
 </section>
@@ -197,16 +198,17 @@ hr {
         <br>
         <div class="content has-text-justified">
           <p>
-            While neural implicit representations have gained popularity in multi-view 3D reconstruction, previous work struggles to yield physically plausible results, thereby limiting their applications in physics-demanding domains like embodied AI and robotics. 
-            The lack of plausibility originates from both the absence of physics modeling in the existing pipeline and their inability to recover intricate geometrical structures. 
-            In this paper, we introduce <b>PhyRecon</b>, which stands as the first approach to harness both differentiable rendering and differentiable physics simulation to learn implicit surface representations. 
-            Our framework proposes a novel differentiable particle-based physical simulator seamlessly integrated with the neural implicit representation. 
-            At its core is an efficient transformation between SDF-based implicit representation and explicit surface points by our proposed algorithm, Surface Points Marching Cubes (SP-MC) , enabling differentiable learning with both rendering and physical losses. 
-            Moreover, we model both rendering and physical uncertainty to identify and compensate for the inconsistent and inaccurate monocular geometric priors. 
-            The physical uncertainty additionally enables a physics-guided pixel sampling to enhance the learning of slender structures. 
-            By amalgamating these techniques, our model facilitates efficient joint modeling with appearance, geometry, and physics. 
-            Extensive experiments demonstrate that <b>PhyRecon</b> significantly outperforms all state-of-the-art methods in terms of reconstruction quality. 
-            Our reconstruction results also yield superior physical stability, verified by Isaac Gym, with at least a 40% improvement across all datasets, opening broader avenues for future physics-based applications.
+            Neural implicit representations have gained popularity in multi-view 3D reconstruction. 
+            However, most previous work struggles to yield physically plausible results, limiting their utility in domains requiring rigorous physical accuracy, such as embodied AI and robotics. 
+            This lack of plausibility stems from the absence of physics modeling in existing methods and their inability to recover intricate geometrical structures. 
+            In this paper, we introduce PhyRecon, the first approach to leverage both differentiable rendering and differentiable physics simulation to learn implicit surface representations. 
+            PhyRecon features a novel differentiable particle-based physical simulator built on neural implicit representations. 
+            Central to this design is an efficient transformation between SDF-based implicit representations and explicit surface points via our proposed Surface Points Marching Cubes (SP-MC), enabling differentiable learning with both rendering and physical losses. 
+            Additionally, PhyRecon models both rendering and physical uncertainty to identify and compensate for inconsistent and inaccurate monocular geometric priors. 
+            This physical uncertainty further facilitates a novel physics-guided pixel sampling to enhance the learning of slender structures. 
+            By integrating these techniques, our model supports differentiable joint modeling of appearance, geometry, and physics. 
+            Extensive experiments demonstrate that PhyRecon significantly outperforms all state-of-the-art methods. 
+            Our results also exhibit superior physical stability in physical simulators, with at least a 40% improvement across all datasets, paving the way for future physics-based applications.
           </p>
         </div>
       </div>
@@ -264,15 +266,18 @@ hr {
             </p>
         </div>
 
-        <!-- <h3 class="title is-4">Reconstructed Scene in Physical Simulator</h3>
+        <h3 class="title is-4">Reconstructed Scene in Physical Simulator</h3>
         <div class="content has-text-justified">
           <video id="teaser" autoplay muted loop height="100%">
-            <source src="./images/scene_physics.mp4" type="video/mp4">
+            <source src="./images/total_scene_stability_1.mp4" type="video/mp4">
+          </video>
+          <video id="teaser" autoplay muted loop height="100%">
+            <source src="./images/total_scene_stability_2.mp4" type="video/mp4">
           </video>
             <p>
                Our results exhibit substantial stability improvements in physical simulators compared with existing methods, signaling a broader potential for physics-demanding applications. 
             </p>
-        </div> -->
+        </div>
 <br>
 
 <section class="section" id="BibTeX">
